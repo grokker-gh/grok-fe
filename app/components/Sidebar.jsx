@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Controlled as ControlledEditor } from "react-codemirror2";
-import { useRef } from "react";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
+import { useRef, useState } from "react";
+import { Controlled as ControlledEditor } from "react-codemirror2";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
 export default function Sidebar({ logs, setOutput }) {
@@ -68,7 +67,7 @@ export default function Sidebar({ logs, setOutput }) {
             theme: "material",
             readOnly: true,
           }}
-          onChange={(editor, data, value) => {}}
+          onChange={(editor, data, value) => { }}
           onBeforeChange={(editor, data, value) => {
             setPattern(value);
           }}

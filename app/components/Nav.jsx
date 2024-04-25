@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Logo from "@/public/logo.svg";
+import Image from "next/image";
 export default function Nav() {
   return (
     <div className="flex items-center justify-between px-6 py-3 border-b-2">

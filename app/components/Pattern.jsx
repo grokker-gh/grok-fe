@@ -1,12 +1,10 @@
-import { Controlled as ControlledEditor } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
+import { loadWASM } from "onigasm";
+import { useEffect, useRef } from "react";
+import { Controlled as ControlledEditor } from "react-codemirror2";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
-import { useEffect, useRef } from "react";
-import { useState } from "react";
-import { GrokPattern, GrokCollection } from "grok-js";
-import { loadWASM } from "onigasm";
 
 export default function Pattern({ pattern, setPattern, logs, setOutput }) {
   const patternEditor = useRef();
@@ -54,7 +52,7 @@ export default function Pattern({ pattern, setPattern, logs, setOutput }) {
             lineNumbers: true,
             theme: "material",
           }}
-          onChange={(editor, data, value) => {}}
+          onChange={(editor, data, value) => { }}
           onBeforeChange={(editor, data, value) => {
             setPattern(value);
           }}

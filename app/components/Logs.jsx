@@ -1,10 +1,9 @@
-import { Controlled as ControlledEditor } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
+import { useRef } from "react";
+import { Controlled as ControlledEditor } from "react-codemirror2";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
-import { useEffect, useRef } from "react";
-import { useState } from "react";
 export default function Logs({ logs, setLogs }) {
   const editor = useRef();
   const wrapper = useRef();
@@ -28,7 +27,7 @@ export default function Logs({ logs, setLogs }) {
             lineNumbers: true,
             theme: "material",
           }}
-          onChange={(editor, data, value) => {}}
+          onChange={(editor, data, value) => { }}
           onBeforeChange={(editor, data, value) => {
             setLogs(value);
           }}

@@ -1,11 +1,8 @@
-import { Controlled as ControlledEditor } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
+import ReactJson from "react-json-view";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
-import { useEffect, useRef } from "react";
-import { useState } from "react";
-import ReactJson from "react-json-view";
 
 export default function Output({ output, setOutput }) {
   //   const resultEditor = useRef();

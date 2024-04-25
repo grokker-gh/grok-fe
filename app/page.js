@@ -1,16 +1,14 @@
 "use client";
-import Nav from "./components/Nav";
-import { Controlled as ControlledEditor } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
-require("codemirror/mode/xml/xml");
-require("codemirror/mode/javascript/javascript");
-import { useEffect, useRef } from "react";
 import { useState } from "react";
 import Logs from "./components/Logs";
+import Nav from "./components/Nav";
+import Output from "./components/Output";
 import Pattern from "./components/Pattern";
 import Sidebar from "./components/Sidebar";
-import Output from "./components/Output";
+require("codemirror/mode/xml/xml");
+require("codemirror/mode/javascript/javascript");
 
 export default function Home() {
   const [logs, setLogs] = useState(null);
