@@ -1,7 +1,9 @@
 import "codemirror/lib/codemirror.css";
-import "codemirror/theme/material.css";
+import "codemirror/theme/elegant.css";
 import { useRef } from "react";
 import { Controlled as ControlledEditor } from "react-codemirror2";
+import { ChipButton } from "./ChipButton";
+import Title from "./title";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
 export default function Logs({ logs, setLogs }) {
@@ -14,18 +16,18 @@ export default function Logs({ logs, setLogs }) {
   return (
     <>
       <div className="flex gap-4 px-5 mt-4">
-        <span>Sample Data</span>
-        <span onClick={() => navigator.clipboard.writeText(logs)}>Copy</span>
-        <span onClick={() => setLogs(null)}>Delete</span>
+        <Title text="Logs" />
+        <ChipButton label="Copy" onClick={() => navigator.clipboard.writeText(logs)} />
+        <ChipButton label="Delete" onClick={() => setLogs(null)} />
       </div>
-      <section className="px-5 mt-4 ">
+      <section className="px-5 mt-4">
         <ControlledEditor
           value={logs}
           ref={wrapper}
           options={{
             mode: "xml",
             lineNumbers: true,
-            theme: "material",
+            theme: "elegant",
           }}
           onChange={(editor, data, value) => { }}
           onBeforeChange={(editor, data, value) => {

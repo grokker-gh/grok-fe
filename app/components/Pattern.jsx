@@ -1,8 +1,9 @@
 import "codemirror/lib/codemirror.css";
-import "codemirror/theme/material.css";
-import { loadWASM } from "onigasm";
-import { useEffect, useRef } from "react";
+import "codemirror/theme/elegant.css";
+import { useRef } from "react";
 import { Controlled as ControlledEditor } from "react-codemirror2";
+import { ChipButton } from "./ChipButton";
+import Title from "./title";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
 
@@ -30,18 +31,13 @@ export default function Pattern({ pattern, setPattern, logs, setOutput }) {
       })
       .catch((err) => setOutput(err));
   };
-  useEffect(() => {
-    loadWASM("/onigasm.wasm").then(() => {
-      console.log("WASM loaded");
-    });
-  }, []);
   return (
     <>
       <div className="flex gap-4 px-5 mt-4">
-        <span>Grok Pattern</span>
-        <span onClick={() => navigator.clipboard.writeText(pattern)}>Copy</span>
-        <span onClick={handleTransform}>Load</span>
-        <span onClick={() => setPattern(null)}>Delete</span>
+        <Title text="Grok Pattern" />
+        <ChipButton label="Copy" onClick={() => navigator.clipboard.writeText(pattern)} />
+        <ChipButton label="Load" onClick={handleTransform} />
+        <ChipButton label="Delete" onClick={() => setPattern(null)} />
       </div>
       <section className="px-5 mt-4 ">
         <ControlledEditor
@@ -50,7 +46,7 @@ export default function Pattern({ pattern, setPattern, logs, setOutput }) {
           options={{
             mode: "xml",
             lineNumbers: true,
-            theme: "material",
+            theme: "elegant",
           }}
           onChange={(editor, data, value) => { }}
           onBeforeChange={(editor, data, value) => {
