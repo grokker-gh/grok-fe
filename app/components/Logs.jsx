@@ -1,3 +1,5 @@
+import Clipboard from "@/public/clipboard.svg";
+import Trash from "@/public/trash-can.svg";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/elegant.css";
 import { useRef } from "react";
@@ -6,6 +8,7 @@ import { ChipButton } from "./ChipButton";
 import Title from "./title";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
+
 export default function Logs({ logs, setLogs }) {
   const editor = useRef();
   const wrapper = useRef();
@@ -17,8 +20,8 @@ export default function Logs({ logs, setLogs }) {
     <>
       <div className="flex gap-4 px-5 mt-4">
         <Title text="Logs" />
-        <ChipButton label="Copy" onClick={() => navigator.clipboard.writeText(logs)} />
-        <ChipButton label="Delete" onClick={() => setLogs(null)} />
+        <ChipButton icon={Clipboard} label="Copy" onClick={() => navigator.clipboard.writeText(JSON.stringify(output))} />
+        <ChipButton label="Delete" icon={Trash} onClick={() => setLogs(null)} />
       </div>
       <section className="px-5 mt-4">
         <ControlledEditor
