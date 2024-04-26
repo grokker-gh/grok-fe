@@ -14,10 +14,9 @@ export default function Home() {
   const [logs, setLogs] = useState(null);
   const [pattern, setPattern] = useState(null);
   const [output, setOutput] = useState(null);
-
   return (
     <>
-      <div class="min-h-[75vh] flex pb-3  ">
+      <div class="min-h-[75vh] flex pb-3">
         <div className="w-[70vw] h-[inherit] border-b-2 pb-3 border-r-2 border-solid border-[#CBD5E1] ">
           <Nav />
           <Logs logs={logs} setLogs={setLogs} />
