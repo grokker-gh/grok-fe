@@ -52,7 +52,7 @@ export default function Sidebar({ logs, setOutput }) {
 	return (
 		<div className="w-[30vw] text-center space-y-16 h-[inherit] border-b-2 pb-3 px-4 ">
 			<div>
-				<p className="px-5 mt-4 mx-auto">Pattern Recommendation</p>
+				<h1 className="mt-4 mx-auto font-medium text-gray-700 text-size-4" >Pattern Recommendation</h1>
 				<button
 					onClick={generate}
 					className="bg-gradient-to-r from-[#CC60FF] to-[#2988F9] text-gray-50 px-5 py-2 mt-4 mx-auto rounded-full cursor-pointer disabled:bg-[#CBD5E1] disabled:cursor-not-allowed"
@@ -74,7 +74,7 @@ export default function Sidebar({ logs, setOutput }) {
 								theme: 'material',
 								readOnly: true
 							}}
-							onChange={(editor, data, value) => {}}
+							onChange={(editor, data, value) => { }}
 							onBeforeChange={(editor, data, value) => {
 								setPattern(value)
 							}}
@@ -91,8 +91,8 @@ export default function Sidebar({ logs, setOutput }) {
 					</button>
 				</div>
 			) : (
-				<div className="space-y-2">
-					<img src="/ghost.png" alt="" />
+				<div className="space-y-2 flex flex-col justify-center items-center">
+					<img src="/ghost.png" className="w-1/2" alt="" />
 					<p className="text-gray-400">Please generate a pattern!</p>
 				</div>
 			)}
