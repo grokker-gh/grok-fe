@@ -56,7 +56,6 @@ export default function Pattern({ pattern, setPattern, logs, setOutput }) {
 
 				<ChipButton
 					label="Apply"
-					icon={Trash}
 					onClick={handleTransform}
 					className="bg-[#61CFAD] text-white"
 				/>

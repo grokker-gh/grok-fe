@@ -4,6 +4,10 @@ import { useRef, useState } from 'react'
 import { Controlled as ControlledEditor } from 'react-codemirror2'
 require('codemirror/mode/xml/xml')
 require('codemirror/mode/javascript/javascript')
+import Ghost from '@/public/ghost.svg'
+import Refresh from '@/public/refresh.svg'
+import Image from 'next/image'
+
 export default function Sidebar({ logs, setOutput }) {
 	const [pattern, setPattern] = useState(null)
 	const patternEditor = useRef()
@@ -52,13 +56,27 @@ export default function Sidebar({ logs, setOutput }) {
 	return (
 		<div className="w-[30vw] text-center space-y-16 h-[inherit] border-b-2 pb-3 px-4 ">
 			<div>
-				<h1 className="mt-4 mx-auto font-medium text-gray-700 text-size-4" >Pattern Recommendation</h1>
+				<h1 className="mt-4 mx-auto font-medium text-gray-700 text-size-4">
+					Pattern Recommendation
+				</h1>
 				<button
 					onClick={generate}
-					className="bg-gradient-to-r from-[#CC60FF] to-[#2988F9] text-gray-50 px-5 py-2 mt-4 mx-auto rounded-full cursor-pointer disabled:bg-[#CBD5E1] disabled:cursor-not-allowed"
+					className={`flex gap-2 items-center ${
+						!pattern
+							? 'bg-gradient-to-r from-[#CC60FF] to-[#2988F9] text-gray-50'
+							: 'bg-gray-100 text-gray-500'
+					}   px-5 py-2 mt-4 mx-auto rounded-full cursor-pointer disabled:cursor-not-allowed border-b border-gray-500`}
 					disabled={logs === null || logs.length === 0}
 				>
-					{pattern ? 'Refresh' : 'Generate Grok Pattern'}
+					{pattern ? (
+						<Image
+							height={20}
+							width={20}
+							src={Refresh}
+							alt="refresh"
+						/>
+					) : null}
+					{pattern ? ` Refresh` : 'Generate Grok Pattern'}
 				</button>
 			</div>
 
@@ -74,7 +92,7 @@ export default function Sidebar({ logs, setOutput }) {
 								theme: 'material',
 								readOnly: true
 							}}
-							onChange={(editor, data, value) => { }}
+							onChange={(editor, data, value) => {}}
 							onBeforeChange={(editor, data, value) => {
 								setPattern(value)
 							}}
@@ -91,8 +109,9 @@ export default function Sidebar({ logs, setOutput }) {
 					</button>
 				</div>
 			) : (
-				<div className="space-y-2 flex flex-col justify-center items-center">
-					<img src="/ghost.png" className="w-1/2" alt="" />
+				<div className="gap-2 flex flex-col items-center">
+					<Image height={800} width={400} src={Ghost} alt="ghost" />
+
 					<p className="text-gray-400">Please generate a pattern!</p>
 				</div>
 			)}

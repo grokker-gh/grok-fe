@@ -7,14 +7,16 @@ export const ChipButton = ({ label, onClick, icon, className }) => {
 			className={`flex items-center text-sm px-3 py-1 bg-gray-100 text-gray-500 rounded-full ${className}`}
 			onClick={onClick}
 		>
-			<Image
-				color="gray-500"
-				src={icon}
-				width={22}
-				height={22}
-				className="px-1"
-				alt="icon"
-			/>
+			{icon && (
+				<Image
+					color="gray-500"
+					src={icon}
+					width={22}
+					height={22}
+					className="px-1"
+					alt="icon"
+				/>
+			)}
 			{label}
 		</button>
 	)
