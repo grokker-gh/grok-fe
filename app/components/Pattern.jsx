@@ -36,7 +36,7 @@ export default function Pattern({ pattern, setPattern, logs, setOutput }) {
 			.catch((err) => setOutput(err))
 	}
 	return (
-		<>
+		<div className="h-[30vh] overflow-hidden">
 			<div className="flex gap-6 px-5 mt-4">
 				<Title text="Grok Pattern" />
 
@@ -60,7 +60,7 @@ export default function Pattern({ pattern, setPattern, logs, setOutput }) {
 					className="bg-[#61CFAD] text-white"
 				/>
 			</div>
-			<section className="px-5 mt-4 ">
+			<section className="px-5 mt-4">
 				<ControlledEditor
 					value={pattern}
 					ref={patternWrapper}
@@ -77,6 +77,6 @@ export default function Pattern({ pattern, setPattern, logs, setOutput }) {
 					editorWillUnmount={patternEditorWillUnmount}
 				/>
 			</section>
-		</>
+		</div>
 	)
 }

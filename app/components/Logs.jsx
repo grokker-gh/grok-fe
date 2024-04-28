@@ -17,7 +17,7 @@ export default function Logs({ logs, setLogs }) {
 		wrapper.current ? (wrapper.current.hydrated = false) : null
 	}
 	return (
-		<>
+		<div className="h-[30vh] overflow-hidden">
 			<div className="flex gap-4 px-5 mt-4">
 				<Title text="Sample Data" />
 				<ChipButton
@@ -50,6 +50,6 @@ export default function Logs({ logs, setLogs }) {
 					editorWillUnmount={editorWillUnmount}
 				/>
 			</section>
-		</>
+		</div>
 	)
 }
